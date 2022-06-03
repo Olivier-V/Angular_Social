@@ -1,0 +1,20 @@
+<div class="row">
+    <!-- *ngFor="let article of articles" -->
+    <div class="col-md-2"></div>
+    <div class="card col-md-8">
+      <div class="card-header" >
+       <h2>{{user.pseudo}}</h2>
+      </div>
+      <div class="card-body">
+        <img src={{user.avatar}}>
+        <p class="card-text">Identifiant : {{user.id}}</p>
+        <p class="card-text">Email: {{user.email}}</p>
+        <p class="card-text">Niveau: {{user.niveau}}</p>
+        <div id="group-btn" *ngIf="user.id === token.id ">
+          <a class="btn btn-warning" >Editer</a>
+          <a class="btn btn-danger" >Supprimer</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>

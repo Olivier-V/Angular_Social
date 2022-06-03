@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <form [formGroup]="articleForm" (ngSubmit)="submitForm()" class="col-md-8">
+    <div class="form-group">
+      <label for="titre">Votre Titre</label><br>
+      <input type="text" formControlName="titre"><br>
+      <label for="contenu">Votre texte</label><br>
+      <textarea class="form-control" id="contenu" rows="3" formControlName="contenu"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Envoyer</button>
+  </form>
+  <div class="col-md-2"></div>
+</div>

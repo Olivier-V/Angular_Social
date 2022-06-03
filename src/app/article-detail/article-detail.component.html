@@ -1,0 +1,14 @@
+  <div class="row">
+    <div class="col-md-2"></div>
+    <form  class="col-md-8">
+      <div class="form-group">
+        <label for="titre">Votre Titre</label><br>
+        <input id="titre" type="text"  value="{{article.titre}}"><br>
+        <label for="contenu">Votre texte</label><br>
+        <textarea id="contenu" class="form-control" id="contenu" rows="3"  value="{{article.contenu}}"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;" (click)="submitForm()">Modifier</button>
+    </form>
+    <div class="col-md-2"></div>
+  </div>
+  

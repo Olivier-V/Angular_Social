@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img src="../../assets/img/angular-icon-logo-png-transparent.png" width="30" height="30" class="d-inline-block align-top"
+    <img src="../../assets/img/blaireau.gif" width="80" height="80" class="d-inline-block"
       alt="">
     Angular Social
   </a>
   <div id="menu">
-    <a routerLink="connexion">Connexion</a>
-    <a routerLink="inscription">Inscription</a>
-    <a routerLink="users">Utilisateurs</a>
+    <a routerLink="connexion" *ngIf="!usersService.userIsConnected">Connexion</a>
+    <a routerLink="inscription" *ngIf="!usersService.userIsConnected">Inscription</a>
+    <a href="/connexion" (click)="logout()" *ngIf="usersService.userIsConnected">Déconnexion</a>
   </div>
 </nav>

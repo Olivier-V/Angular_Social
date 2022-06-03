@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from '../users.service';
+import { JwtTokenService } from '../jwt-token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -8,7 +11,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 })
 export class ConnexionComponent implements OnInit {
   connexionForm: FormGroup;
-  constructor(formBuilder: FormBuilder) { 
+  
+  constructor(formBuilder: FormBuilder,private usersService : UsersService,private tokenService: JwtTokenService,private router: Router ) {  
   this.connexionForm = formBuilder.group({
     email: new FormControl("", [
       Validators.required,
@@ -24,8 +28,20 @@ export class ConnexionComponent implements OnInit {
   }
 
   submitForm() {
-    alert('C\'est connecté')
+    const that = this;
+    this.usersService
+      .loginUser(this.connexionForm.value.email, this.connexionForm.value.password)
+      .subscribe({
+        next(data) {
+          that.tokenService.setToken(data.token);
+        },
+      });
+
+    this.usersService.setuserConnected(true);
+    this.router.navigate(['tbd']);
   }
+
+  
   }
 
   

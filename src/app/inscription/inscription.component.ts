@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-inscription',
@@ -8,7 +9,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 })
 export class InscriptionComponent implements OnInit {
   inscriptionForm: FormGroup;
-  constructor(formBuilder: FormBuilder) { 
+  
+  constructor(formBuilder: FormBuilder,private usersService : UsersService) { 
   this.inscriptionForm = formBuilder.group({
     email: new FormControl("", [
       Validators.required,
@@ -58,7 +60,10 @@ export class InscriptionComponent implements OnInit {
 
   submitForm() {
     if (this.inscriptionForm?.valid) {
-      alert('Le formulaire est ok')
+      const data = this.inscriptionForm.value;
+      this.usersService
+      .addUser(data.pseudo, data.email, data.password, data.avatar)
+      .subscribe((data) => console.log(data));
     }
     else {
       //console.log(this.inscriptionForm.value.email)
