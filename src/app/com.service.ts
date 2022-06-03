@@ -10,7 +10,7 @@ import { tap, Observable } from 'rxjs';
 export class ComService {
   token: TokenObject;
   
-  urlBase = 'https://reseau.jdedev.fr/api/comment';
+  urlBase = 'https://reseau.jdedev.fr/api/article';
   httpOptions = {
     headers: new HttpHeaders({
       'content-Type': 'application/json',
@@ -26,11 +26,10 @@ export class ComService {
     const token = this.tokenService.getToken();
     
     return this.http
-    .get<Array<ComObject>>(this.urlBase+'/'+id, {
+    .get(this.urlBase+'/'+id+"/comment", {
       headers: {
         Authorization: 'Bearer' + ' ' + token,
       },
-    })
-    .pipe(tap((article: Array<ComObject>) => article ));
+    });
   }
 }

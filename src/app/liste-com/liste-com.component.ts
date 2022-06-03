@@ -23,7 +23,7 @@ export class ListeComComponent implements OnInit {
   }
 
   getCom(id:number){
-    return (this.comservice.getComByIdArticle(id).subscribe((data) => (this.coms = data)));
+    return (this.comservice.getComByIdArticle(id).subscribe( (data) => this.coms = (data as Array<ComObject>)));
   }
 
 }
