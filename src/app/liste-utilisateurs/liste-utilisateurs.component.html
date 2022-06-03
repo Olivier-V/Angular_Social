@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="margin-bottom: 80px;">
   <div class="col-md-2"></div>
   <table class="table table-striped col-md-8">
     <thead>
@@ -13,7 +13,9 @@
         <th scope="row">{{user.id}}</th>
         <td>{{user.email}}</td>
         <td>{{user.pseudo}}</td>
-        <button routerLink="/user-detail/{{user.id}}" class="btn btn-primary">Voir profil</button>
+        <button routerLink="/user-detail/{{user.id}}" class="btn btn-primary" *ngIf="user.id != token.id ">Voir profil</button>
+        <button  class="btn btn-warning" *ngIf="user.id == token.id " style="width: 95px;"> Editer </button><br>
+        <button  class="btn btn-danger" *ngIf="user.id == token.id " style="width: 95px;" (click)='deleteArticle(user.id)'> Effacer </button>
       </tr>
     </tbody>
   </table>

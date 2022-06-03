@@ -15,6 +15,7 @@ import { TdbComponent } from './tdb/tdb.component';
 import { EditionComponent } from './edition/edition.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { ListeComComponent } from './liste-com/liste-com.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     TdbComponent,
     EditionComponent,
     ArticleDetailComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    ListeComComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,10 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     ReactiveFormsModule,
     HttpClientModule    
   ],
-  providers: [],
+  providers: [
+    ListeArticlesComponent,
+    ListeComComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

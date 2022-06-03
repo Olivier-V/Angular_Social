@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/tbd">
     <img src="../../assets/img/blaireau.gif" width="80" height="80" class="d-inline-block"
       alt="">
-    Angular Social
+    <h1 >Angular Social</h1>
   </a>
   <div id="menu">
-    <a routerLink="connexion" *ngIf="!usersService.userIsConnected">Connexion</a>
-    <a routerLink="inscription" *ngIf="!usersService.userIsConnected">Inscription</a>
-    <a href="/connexion" (click)="logout()" *ngIf="usersService.userIsConnected">Déconnexion</a>
+    <a class="btn btn-success" routerLink="connexion" *ngIf="!usersService.userIsConnected">Connexion</a>
+    <a class="btn btn-warning" routerLink="inscription" *ngIf="!usersService.userIsConnected">Inscription</a>
+    <a class="btn btn-danger" href="/connexion" (click)="logout()" *ngIf="usersService.userIsConnected">Déconnexion</a>
   </div>
 </nav>

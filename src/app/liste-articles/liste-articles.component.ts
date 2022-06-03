@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ArticleObject, TokenObject, UserObject } from '../interface';
+import { Component, Input, OnInit } from '@angular/core';
+import { ArticleObject, TokenObject, UserObject } from '../interface/interface';
 import { ArticlesService } from '../articles.service';
 import { GetNamebyIdService } from '../get-nameby-id.service';
 import { UsersService } from '../users.service';
@@ -18,7 +18,7 @@ export class ListeArticlesComponent implements OnInit {
   id:string;
   article: ArticleObject;
 
-  constructor(private route: ActivatedRoute,public articlesService: ArticlesService,public usersService : UsersService, public tokenService : JwtTokenService,public GetNamebyIdService : GetNamebyIdService,private router: Router) {
+  constructor(private route: ActivatedRoute,private articlesService: ArticlesService,private usersService : UsersService, private tokenService : JwtTokenService,private GetNamebyIdService : GetNamebyIdService,private router: Router) {
     this.articlesService.getArticles().subscribe((data) => (this.articles = data));
     this.token = this.tokenService.decodeToken();
    }
@@ -28,9 +28,7 @@ export class ListeArticlesComponent implements OnInit {
   }
   deleteArticle(id:any){
     console.log(id);
-    this.articlesService.deleteArticle(id);
-    
-    
+    this.articlesService.deleteArticle(id);  
   }
 
 }

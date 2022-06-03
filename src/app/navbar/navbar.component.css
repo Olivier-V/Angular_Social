@@ -1,9 +1,19 @@
 nav{
-    background-color: lightgray !important;
+    background: linear-gradient(0.25turn, white ,lightgrey, grey, black);
 }
 .elementMenu{
  margin: 10px;
 }
 a{
     margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+}
+h1{
+    margin: 10px;
+    text-shadow: #007BFF 1px 0 10px;
+}
+#menu{
+    display: flex;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtTokenService } from './jwt-token.service';
-import { ArticleObject, TokenObject, UserObject } from './interface';
+import { ArticleObject, TokenObject, UserObject } from './interface/interface';
 import { tap, Observable } from 'rxjs';
 
 @Injectable({
@@ -67,7 +67,7 @@ export class ArticlesService {
 
   deleteArticle(id: number){
       return this.http.delete(this.urlBase+'/'+id,this.httpOptions)
-      .subscribe(() => console.log('Delete successful') );
+      .subscribe(() => window.location.reload );
     }
   
 }

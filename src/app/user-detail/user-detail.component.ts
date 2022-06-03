@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TokenObject, UserObject } from '../interface';
+import { TokenObject, UserObject } from '../interface/interface';
 import { JwtTokenService } from '../jwt-token.service';
 import { UsersService } from '../users.service';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticlesService} from "../articles.service";
 import {ActivatedRoute} from '@angular/router';
-import { ArticleObject, TokenObject } from '../interface';
+import { ArticleObject, TokenObject } from '../interface/interface';
 import { JwtTokenService } from '../jwt-token.service';
 
 @Component({

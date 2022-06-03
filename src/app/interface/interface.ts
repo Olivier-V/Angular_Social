@@ -24,3 +24,9 @@ export interface UserObject {
     creation: string;
     pseudo : string;
   }
+  export interface ComObject{
+    id_commentaire: number;
+    contenu: string;
+    id_article: number;
+    id: number;
+  }

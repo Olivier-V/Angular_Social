@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtTokenService } from './jwt-token.service';
-import { UserObject, TokenObject } from './interface';
+import { UserObject, TokenObject } from './interface/interface';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../articles.service';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { ArticleObject } from '../interface';
+import { ArticleObject } from '../interface/interface';
 
 @Component({
   selector: 'app-edition',

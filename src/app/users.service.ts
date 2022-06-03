@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserObject, TokenObject } from './interface';
+import { UserObject, TokenObject } from './interface/interface';
 import { JwtTokenService } from './jwt-token.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -18,7 +19,7 @@ export class UsersService {
     }),
   };
 
-  constructor(private http: HttpClient,private tokenService: JwtTokenService) {
+  constructor(private http: HttpClient,private tokenService: JwtTokenService,private router: Router) {
     if (this.tokenService.getToken()) {
       this.setuserConnected(true);
     }
@@ -83,6 +84,15 @@ export class UsersService {
     if (bool) {
       this.userIsConnected = !this.userIsConnected;
     }
+  }
+  deleteUsers(id: number) {
+    const token = this.tokenService.getToken();
+      let retour = this.http.delete(this.urlBase+'/'+id, {
+        headers: {
+          Authorization: 'Bearer' + ' ' + token,
+        }})
+      .subscribe(() => console.log('Delete successful') );
+      return retour;
   }
 
 }

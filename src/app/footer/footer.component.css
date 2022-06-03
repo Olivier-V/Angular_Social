@@ -4,4 +4,6 @@ footer{
     color: black !important;
     position:fixed;
     bottom:0px;
+    background: linear-gradient(0.25turn,black , grey,lightgrey,white  );
+
 }

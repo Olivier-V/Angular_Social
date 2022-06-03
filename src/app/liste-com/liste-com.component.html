@@ -1,0 +1,5 @@
+<p>liste-com works!</p>
+<button (click)="getCom(article.id_article)">Voir les commentaires</button>
+<ul>
+    <li *ngFor="let com of coms">ici {{com.contenu}}</li>
+</ul>
